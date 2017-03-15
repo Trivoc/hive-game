@@ -1,4 +1,4 @@
-package hive.game;
+package hive.model;
 
 public class Main {
 
