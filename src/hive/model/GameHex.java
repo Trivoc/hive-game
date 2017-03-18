@@ -1,12 +1,18 @@
 package hive.model;
 
+import hive.structure.AxialCoords;
+
 /**
  * Created by trivo on 2017-03-15.
  */
-public interface GameHex {
+public abstract class GameHex {
 
-    //Move a hex to end up connected at hex;direction.
-    public void moveHex(GameHex hex, HexDirection direction);
+    private AxialCoords coords;
+
+    //Move a hex to position x, y;
+    public void moveHex(int x, int y){
+        coords.setCoords(x,y);
+    }
 
 
 }
