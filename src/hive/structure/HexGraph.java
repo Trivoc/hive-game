@@ -1,7 +1,5 @@
 package hive.structure;
 
-import hive.model.HexStack;
-
 /**
  * Created by trivo on 2017-03-15.
  */

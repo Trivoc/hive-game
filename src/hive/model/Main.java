@@ -1,8 +1,11 @@
 package hive.model;
 
+import hive.structure.AxialCoords;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+	    Hive hive = new Hive();
+	    hive.addEdges(new AxialCoords(0,0));
     }
 }

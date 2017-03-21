@@ -1,6 +1,6 @@
-package hive.structure;
+package hive.model;
 
-import hive.model.HexStack;
+import hive.structure.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,7 +13,8 @@ public class Hive implements HexGraph {
     //Nodes
     private HashMap<AxialCoords, HexStack> nodesMap;
 
-    //Edges
+    //TODO: Evaluate edge implementation!
+    //Edges... put double links from each hexstack instead?
     private ArrayList<Edge> edges;
 
 
@@ -29,9 +30,27 @@ public class Hive implements HexGraph {
             System.out.println("Can't add to a stack when placing hexes!");
             return false;
         }
+        nodesMap.put(coords, newHex);
+        addEdges(coords);
 
-        nodesMap.put(new AxialCoords(x, y), newHex);
         return true;
+    }
+
+
+    //Adds edges to the hex specified at coordinates coords
+    private void addEdges(AxialCoords coords){
+        HexStack neighbour;
+
+        for(int x = -1; x <= 1; x++){
+            for(int y = -1; y <= 1; y++){
+                if(x != y){
+                    //debug (seems ok): System.out.println("Added: x+" + x + ", y+" + y );
+                    neighbour = nodesMap.get(new AxialCoords
+                            (coords.getX() + x, coords.getY() + y));
+                }
+            }
+
+        }
     }
 
     @Override
