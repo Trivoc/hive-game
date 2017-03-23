@@ -1,6 +1,5 @@
 package hive.model;
 
-import hive.structure.BugHex;
 import hive.structure.HexStack;
 
 import java.util.*;
@@ -12,6 +11,14 @@ public class BugStack implements HexStack<BugHex>{
 
     private LinkedList<BugHex> bugStack;
 
+    public BugStack(){
+        bugStack = new LinkedList<>();
+    }
+
+    public BugStack(BugHex firstHex){
+        bugStack = new LinkedList<>();
+        push(firstHex);
+    }
 
     @Override
     public void push(BugHex hex) {
@@ -20,7 +27,11 @@ public class BugStack implements HexStack<BugHex>{
 
     @Override
     public BugHex pop() {
-        return bugStack.getLast();
+        if(!isEmpty()){
+            return bugStack.getLast();
+        } else {
+            return null;
+        }
     }
 
     @Override
